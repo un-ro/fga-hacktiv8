@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// Sesion 1 - Challenge 1
 func main() {
 	// Variables
 	i := 21
