@@ -9,21 +9,17 @@ type Person struct {
 	role    string
 }
 
-type Student interface {
-	Study()
-}
-
 type Teacher interface {
 	Teach()
 	Bladder() string
 }
 
-func (p Person) Study() {
-	fmt.Println(p.name, "is studying")
-}
-
 func (p Person) Teach() {
 	fmt.Println(p.name, "is teaching")
+}
+
+func (p Person) Bladder() string {
+	return "I'm full"
 }
 
 func main() {
@@ -41,4 +37,5 @@ func main() {
 
 	unero := Person{name: "Unero", age: 20, address: "Jakarta", role: "Student"}
 	unero.Teach()
+	unero.Bladder()
 }
