@@ -1,0 +1,5 @@
+go 1.20
+
+use ./web-api
+use ./web-gin
+use ./book-api
