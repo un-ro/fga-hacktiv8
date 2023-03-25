@@ -4,3 +4,5 @@ use ./web-api
 use ./web-gin
 use ./book-api
 use ./web-sql
+use ./book-sql-api
+use ./book-sql-gorm-api
