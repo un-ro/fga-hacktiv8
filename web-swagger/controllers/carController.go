@@ -43,7 +43,7 @@ func GetOneCars(c *gin.Context) {
 	var db = database.GetDB()
 	var car models.Car
 
-	err := db.First(&car, "Id = ?", c.Param("Id")).Error
+	err := db.First(&car, "Id = ?", c.Param("id")).Error
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
@@ -71,7 +71,7 @@ func CreateCars(c *gin.Context) {
 		return
 	}
 
-	car := models.Car{Merk: input.Merk, Harga: input.Harga, Typecars: input.Typecars}
+	car := models.Car{Merk: input.Merk, Harga: input.Harga, Typecars: input.Typecars, Pemilik: input.Pemilik}
 	db.Create(&car)
 
 	c.JSON(http.StatusOK, gin.H{"data": car})
@@ -90,18 +90,25 @@ func UpdateCars(c *gin.Context) {
 	var db = database.GetDB()
 	var car models.Car
 
-	err := db.First(&car, "Id = ?", c.Param("Id")).Error
+	// Check data is exist or not
+	err := db.First(&car, "Id = ?", c.Param("id")).Error
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
 		return
 	}
 
+	// Validate input
 	var input models.Car
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	// Update data
+	db.Model(&car).Updates(input)
+
+	c.JSON(http.StatusOK, gin.H{"data": car})
 }
 
 // DeleteCars godoc
@@ -117,7 +124,7 @@ func DeleteCars(c *gin.Context) {
 	var db = database.GetDB()
 	var carDelete models.Car
 
-	err := db.First(&carDelete, "Id = ?", c.Param("Id")).Error
+	err := db.First(&carDelete, "Id = ?", c.Param("id")).Error
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})

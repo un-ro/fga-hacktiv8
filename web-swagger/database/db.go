@@ -3,16 +3,18 @@ package database
 import (
 	"fmt"
 	"log"
+	"web-swagger/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 const (
-	HOST   = "localhost"
-	PORT   = "5432"
-	USER   = "postgres"
-	DBNAME = "fga"
+	HOST     = "localhost"
+	PORT     = "5432"
+	USER     = "postgres"
+	PASSWORD = "toor"
+	DBNAME   = "fga"
 )
 
 var (
@@ -21,7 +23,7 @@ var (
 )
 
 func StartDB() {
-	config := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable", HOST, PORT, USER, DBNAME)
+	config := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", HOST, PORT, USER, PASSWORD, DBNAME)
 
 	db, err = gorm.Open(postgres.Open(config), &gorm.Config{})
 
@@ -29,7 +31,7 @@ func StartDB() {
 		log.Fatal("Error connecting to database: ", err)
 	}
 
-	// db.Debug().AutoMigrate(models.User{}, models.Product{})
+	db.Debug().AutoMigrate(models.Car{})
 }
 
 func GetDB() *gorm.DB {
