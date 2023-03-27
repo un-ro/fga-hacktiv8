@@ -1,13 +1,12 @@
 go 1.20
 
-use ./web-api
-use ./web-gin
-use ./web-sql
-use ./web-gorm
-use ./web-swagger
-use ./book-api
-use ./book-sql-api
-use ./book-sql-gorm-api
-
-use ./latihan-govendoring
-use ./go-auth
+use (
+	./web-api
+	./web-gin
+	./web-sql
+	./web-gorm
+	./web-swagger
+	./book-api
+	./book-sql-api
+	./book-sql-gorm-api
+)
