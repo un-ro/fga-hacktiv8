@@ -8,3 +8,6 @@ use ./web-swagger
 use ./book-api
 use ./book-sql-api
 use ./book-sql-gorm-api
+
+use ./latihan-govendoring
+use ./go-auth
