@@ -4,5 +4,6 @@ use (
 	./latihan-govendoring
 	./go-auth
 	./go-request
+	./go-middleware
 	./environment-service
 )
