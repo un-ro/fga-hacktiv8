@@ -5,5 +5,6 @@ use (
 	./go-auth
 	./go-request
 	./go-middleware
+	./go-jwt
 	./environment-service
 )
