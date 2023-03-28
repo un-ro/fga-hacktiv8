@@ -6,7 +6,4 @@ use (
 	./web-sql
 	./web-gorm
 	./web-swagger
-	./book-api
-	./book-sql-api
-	./book-sql-gorm-api
 )

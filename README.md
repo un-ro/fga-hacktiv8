@@ -3,6 +3,6 @@ Chapter 2: Go Programming Microservices into The Specialization
 
 ## Challenges
 
-- [Simple API](./book-api/)
-- [API + DB](./book-sql-api/)
-- [API + GORM + DB](./book-sql-gorm-api/)
+- [Simple API](https://github.com/un-ro/book-api-go/tree/main)
+- [API + DB](https://github.com/un-ro/book-api-go/tree/sql)
+- [API + GORM + DB](https://github.com/un-ro/book-api-go/tree/gorm)
