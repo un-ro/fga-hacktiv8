@@ -6,5 +6,6 @@ use (
 	./go-request
 	./go-middleware
 	./go-jwt
+	./go-unit-test
 	./environment-service
 )
